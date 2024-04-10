@@ -1,1 +1,2 @@
-# todoapp-with-venv
+# todoapp
+my app
