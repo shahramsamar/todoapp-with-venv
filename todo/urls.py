@@ -20,8 +20,9 @@ from todo import views
 
 
 app_name = 'todo'
+
 urlpatterns = [
-    path('',views.Task_list,name='index'),
+    path('',views.index,name='index'),
   
 ]
 

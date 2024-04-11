@@ -1,5 +1,8 @@
 from django.shortcuts import render
+from todo.models import TaskModel
 
-# Create your views here.
+
+
 def index(request):
-    return render(request,'todo/Task_list.html')
+    tasks = TaskModel.objects.all() 
+    return render(request,'todo/Task_list.html',context={'tasks':tasks})
