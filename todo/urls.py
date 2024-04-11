@@ -16,12 +16,12 @@ Including another URLconf
 """
 
 from django.urls import path, include
+from todo import views
 
 
-
-
+app_name = 'todo'
 urlpatterns = [
-    path('todo', include('todo.urls')),
+    path('',views.Task_list,name='index'),
   
 ]
 
