@@ -1,17 +1,18 @@
 {% extends 'todo/base.html' %}
 {% block content %} 
 <main class="container mt-lg-5 pt-5">
+
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Task Create</h5>
-          <form  method="post" id ='task_create'>
+          <h5 class="card-title">Task Edit</h5>
+          <form  method="post" id ='task_edit'action="{% url "todo:task_edit" task_id=form.instance.id %}">
             {{form.as_p}}
             {% csrf_token %}
           </form>
 
         </div>
         <div class="card-footer">
-          <button type="submit" class="btn btn-primary" form="task_create">Submit</button>
+          <button type="submit" class="btn btn-primary" form="task_edit">Submit</button>
           <a  href="{% url "todo:task_list" %}" class="btn btn-secondary">Back</a>
         </div>
     </div>

@@ -4,9 +4,9 @@
     <div class="row justify-content-center">
       <div class="col-lg-6">
         <form action="/search" method="GET" class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search" name="search">
+          <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search" name="q">
           <button class="btn btn-primary me-2" type="submit">Search</button>
-          <a href="{% url "todo:task_create" %}" class="btn btn-success" type="submit">create</a>
+          <a href="{% url "todo:task_create" %}" class="btn btn-success" >create</a>
 
         </form>
       </div>
@@ -20,10 +20,10 @@
       <div class="card-body">
         <h5 class="{% if task.is_done %} text-decoration-line-through {% endif %}">{{task.title}}</h5>
         <div class="btn-group">
-          <button type="button" class="btn btn-primary">Edit</button>
-          <button type="button" class="btn btn-danger">Delete</button>
+          <a href="{% url "todo:task_edit" task_id =task.id %}" class="btn btn-primary">Edit</button>
+          <a href="{% url "todo:task_delete" task_id =task.id %}" class="btn btn-danger">Delete</button>
           {% if task.is_done %} 
-          <button type="button" class="btn btn-success">Done</button>
+          <a href="{% url "todo:task_done" %}" class="btn btn-success">Done</button>
           {% endif %}
         </div>
       </div>
