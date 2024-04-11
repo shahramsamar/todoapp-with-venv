@@ -25,11 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('website.urls')),
     path('blog', include('blog.urls')),
-    path('todo',include('todo.urls')),
-    
-
-
-    
+    path('todo',include('todo.urls')),  
 ]
 
 if settings.DEBUG:

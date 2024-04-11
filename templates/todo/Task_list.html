@@ -1,6 +1,18 @@
 {% extends 'todo/base.html' %}
 {% block content %} 
 <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <form action="/search" method="GET" class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search" name="search">
+          <button class="btn btn-primary me-2" type="submit">Search</button>
+          <a href="{% url "todo:task_create" %}" class="btn btn-success" type="submit">create</a>
+
+        </form>
+      </div>
+    </div>
+  </div>
+<div class="container mt-5">
 {% for task in tasks %}
 <div class="row">
   <div class="col-lg-4 mb-4">
@@ -10,31 +22,9 @@
         <div class="btn-group">
           <button type="button" class="btn btn-primary">Edit</button>
           <button type="button" class="btn btn-danger">Delete</button>
+          {% if task.is_done %} 
           <button type="button" class="btn btn-success">Done</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-4 mb-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Task 2 Title</h5>
-        <div class="btn-group">
-          <button type="button" class="btn btn-primary">Edit</button>
-          <button type="button" class="btn btn-danger">Delete</button>
-          <button type="button" class="btn btn-success">Done</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-4 mb-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Task 3 Title</h5>
-        <div class="btn-group">
-          <button type="button" class="btn btn-primary">Edit</button>
-          <button type="button" class="btn btn-danger">Delete</button>
-          <button type="button" class="btn btn-success">Done</button>
+          {% endif %}
         </div>
       </div>
     </div>
