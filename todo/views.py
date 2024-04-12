@@ -35,7 +35,7 @@ def task_delete(request, task_id):
     if task :
             task.delete()
     else:
-             return HttpResponeNotFound()    
+            return HttpResponeNotFound()    
     return redirect(reverse("todo:task_list"))
     
 
